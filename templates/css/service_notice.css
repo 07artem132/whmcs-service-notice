@@ -1,0 +1,15 @@
+div#tableLabelsList_length {
+    float: left;
+}
+
+div#tableLabelsList_paginate {
+    float: right;
+}
+
+div#tableLabelsList_filter {
+    float: right;
+}
+
+div#tableLabelsList_info {
+    float: left;
+}
