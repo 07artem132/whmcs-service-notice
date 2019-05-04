@@ -49,7 +49,7 @@ add_hook( 'ClientAreaPrimarySidebar', 1, function ( $primarySidebar ) {
 
 	$primarySidebar->getChild( 'Service Details Actions' )->addChild( 'LabelEdit', [
 		'label' => LanguageController::trans( 'ChangeLabel' ),
-		'uri'   => '/?m=ServiceNotice&sid=' . $service->id . '',
+		'uri'   => '/?m=ServiceNotice&sid=' . base64_encode(encrypt((string)$service->id )),
 		'order' => '99'
 	] )->setClass( ( array_key_exists( 'm', $_GET ) && $_GET['m'] === 'ServiceNotice' ? 'active' : '' ) );
 } );
@@ -85,3 +85,6 @@ add_hook( 'InvoiceCreationPreEmail', 1, function ( $vars ) {
 	}
 } );
 
+add_hook('ServiceDelete', 1, function($vars) {
+    LabelModel::find( $vars['serviceid'] )->delete();
+});

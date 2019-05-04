@@ -1,4 +1,7 @@
-<form method="post">
+<script type="text/javascript" src="/modules/addons/ServiceNotice/templates/js/clientEditLabel.js"></script>
+<link rel="stylesheet" type="text/css" href="/modules/addons/ServiceNotice/templates/css/clientEditLabel.css">
+
+<form method="post" >
     <input type="hidden" id="tblhosting_id" value="{{$tblhosting_id}}">
     <div class="form-group">
         <label for="NoticeLabel">{{$translate::trans('Label')}}</label>
@@ -44,6 +47,6 @@
     </div>
 
     <div class="modal-footer" style="border-top:none">
-        <button id="saveNotice" type="submit" class="btn btn-primary" name="save">{{$translate::trans('Save')}}</button>
+        <button id="saveNotice" type="button"  class="btn btn-primary" onclick="clientEditLabelValidate(this.form)"  name="save">{{$translate::trans('Save')}}</button>
     </div>
 </form>
